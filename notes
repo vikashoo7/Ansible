@@ -1,0 +1,7 @@
+### run the setup module 
+  #ansible all -i host -m setup --user bsdansadm
+  #printing the IPv4 address
+      ansible_all_ipv4_addresses
+      ansible_all_ipv6_addresses[0]
+      ansible_default_ipv4.address
+      ansible_default_ipv4["address"]
