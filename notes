@@ -5,3 +5,10 @@
       ansible_all_ipv6_addresses[0]
       ansible_default_ipv4.address
       ansible_default_ipv4["address"]
+### loop
+  - name: print the value
+    debug:
+      msg: "{{ item }}"
+    with_items:
+      - "myapp"
+      - "yourapp"
