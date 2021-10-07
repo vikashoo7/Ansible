@@ -12,3 +12,17 @@
     with_items:
       - "myapp"
       - "yourapp"
+#################################### IIS installation ##########################
+- name: installing the IIS
+  win_feature:
+    name: web-Server
+
+- name: start the service
+  win_service:
+    name: W3Svc
+    state: started
+
+- name: creating the index file
+  win_copy:
+    src: index
+    dest: C:\Inetpub\wwwroot\index.html
