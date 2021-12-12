@@ -26,3 +26,20 @@
   win_copy:
     src: index
     dest: C:\Inetpub\wwwroot\index.html
+
+### Regular expression
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: printing
+      shell: echo "dev-myserve5630"
+      register: host1
+
+    - name: reg printing
+      debug:
+        msg: "{{ host1.stdout.split('-')[1][:7].upper() }}"
+
+    - name: how to include file
+      include: job.yml
+      when: host1.stdout[-1]  == '0' and  host1.stdout.split("-")[1][:7].upper() == "MYSERV"
